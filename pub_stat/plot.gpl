@@ -1,0 +1,19 @@
+set term png enh
+set out "publications.png"
+#set key bmargin center horizontal Left reverse enhanced autotitles columnhead nobox
+set key  horizontal Left reverse enhanced nobox
+set style fill solid 1.00 noborder
+#set style histogram rowstacked title  offset character 2, 0.25, 0
+#set style data histograms
+set style data histogram
+set style histogram cluster gap 1
+set title "Публикации сотрудников лаборатории" 
+set xtics ("1990" 0.0, "1991" 1.0, "1992" 2.0,"1993" 3.0, "1994" 4.0, "1995" 5.0,\
+"1996" 6.0, "1997" 7.0, "1998" 8.0,"1999" 9.0, "2000" 10.0, "2001" 11.0,\
+"2002" 12.0, "2003" 13.0, "2004" 14.0,"2005" 15.0, "2006" 16.0, "2007" 17.0,\
+"2008" 18.0, "2009" 19.0, "2010" 20.0,"2011" 21.0)
+set xtics nomirror rotate
+set xlabel "год"
+set ylabel "число публикаций"
+plot 'years.dat' using 4:xtic(1) t "только статьи",'years.dat' using 2:xtic(1) t "все публикации"
+#,'years.dat' using 3 t "рецензируемые издания"
